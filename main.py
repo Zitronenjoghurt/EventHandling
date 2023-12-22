@@ -9,6 +9,6 @@ event = Event(Event.TYPES.DAMAGE_HULL, amount=10)
 ss.publish_event(event=event)
 
 # takes 10 hull damage through scenario
-scenariolibrary = ScenarioFactory.get_instance()
-asteroid_strike = scenariolibrary.get_scenario(Scenario.TYPES.ASTEROID_STRIKE)
+scenario_library = ScenarioFactory.get_instance()
+asteroid_strike = scenario_library.get_scenario(Scenario.TYPES.ASTEROID_STRIKE)
 asteroid_strike.execute()
