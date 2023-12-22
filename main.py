@@ -1,7 +1,14 @@
+from src.classes.scenario import Scenario, ScenarioFactory
 from src.classes.spaceship import SpaceShip
 from src.classes.event import Event
 
 ss = SpaceShip()
-event = Event(Event.types.DAMAGE_HULL, amount=10)
+
+# takes 10 hull damage through direct event
+event = Event(Event.TYPES.DAMAGE_HULL, amount=10)
 ss.publish_event(event=event)
-t = 1
+
+# takes 10 hull damage through scenario
+scenariolibrary = ScenarioFactory.get_instance()
+asteroid_strike = scenariolibrary.get_scenario(Scenario.TYPES.ASTEROID_STRIKE)
+asteroid_strike.execute()

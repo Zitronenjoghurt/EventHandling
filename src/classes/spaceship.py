@@ -1,9 +1,10 @@
+from .event import Event
 from .event_subscriber import EventSubscriber
 
 class SpaceShip(EventSubscriber):
     def __init__(self) -> None:
         self.SUBSCRIPTIONS = {
-            self.EVENT_TYPES.DAMAGE_HULL: self.damage_hull
+            Event.TYPES.DAMAGE_HULL: self.damage_hull
         }
         super().__init__()
         self.hull = 100
